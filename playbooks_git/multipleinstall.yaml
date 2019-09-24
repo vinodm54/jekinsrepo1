@@ -1,0 +1,27 @@
+---
+
+   - hosts: testgrp
+     become: true
+     tasks:
+        - name: Installing Multiple Packages
+          yum: name= {{item}} state=installed disale_gpg_check
+          with_items:
+              - httpd
+              - mariadb-server
+              - mariadb
+              - php
+              - php_mysql
+              - php_gd
+              - php_pear
+          
+          register: Lamp_install
+        
+        
+        - name: starting mariadb
+          service: name=mariadb  enabled=yes state=started
+          when: Lamp_install is success
+          ignore_errors: true
+        
+        - name: starting httpd
+          service: name=httpd enabled=yes  state=started 
+          when: Lamp_install is success

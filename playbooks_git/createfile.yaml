@@ -1,0 +1,17 @@
+---
+ - hosts: testgrp
+   become: true
+
+   tasks:
+    
+  #  - name: Creating files on Node
+   #   file: path=/home/ans_admin/vinod.txt state=touch
+  
+   # - name: add content to the created file
+    #  copy: content="Unathorized access strictly prohibited to this file\n" dest=/home/ans_admin/vinod.txta
+     - name: Creating files on Node
+       file: path={{item}} state=touch
+       with_items:
+         - '/home/ans_admin/nandha.txt'
+         - '/home/ans_admin/prashanth.txt'
+         - '/home/ans_admin/vinod1.txt'

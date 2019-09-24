@@ -1,0 +1,12 @@
+---
+  - hosts: testgrp
+    become: true
+    tasks:
+      - name: Creating multiple directories on node
+        file: path={{item}} state=directory
+        with_items:
+         - '/home/ans_admin/vinod'
+         - '/home/ans_admin/vinod1'
+         - '/home/ans_admin/vinod2'
+
+   

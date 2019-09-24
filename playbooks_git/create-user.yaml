@@ -1,0 +1,10 @@
+---
+  - hosts: testgrp
+    become: true
+    
+    tasks:
+      - name: remove new user on Node
+        user: name=vinod remove=yes force=yes state=absent
+
+      - name: create new unser on node
+        user: name=vinod password=Vinod@54 group=ans_admin shell=/bin/bash

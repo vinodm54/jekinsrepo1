@@ -1,0 +1,9 @@
+---
+  - hosts: testgrp
+    become: true
+      
+    tasks:
+      - name: install vim
+        yum: name=vim state=installed disable_gpg_check=yes
+        register: vim_install
+

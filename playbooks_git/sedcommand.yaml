@@ -1,0 +1,10 @@
+---
+  - hosts: testgrp
+    become: true
+    tasks:
+      - name: Replace example
+        replace:
+        path: /home/ans_admin/vinod/vinod.txt
+        regexp: 'access'
+        replace: "usage"
+

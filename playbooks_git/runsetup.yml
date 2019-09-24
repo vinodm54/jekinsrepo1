@@ -1,0 +1,6 @@
+---
+  - hosts: testgrp
+    become: true
+    roles: 
+        - apache
+

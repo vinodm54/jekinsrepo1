@@ -1,0 +1,12 @@
+---
+  - hosts: testgrp
+    become: true
+    tasks:
+      - name: Archive files on node
+        archive: 
+          path: /home/ans_admin/vinod/*
+          dest: /home/ans_admin/vinod1.zip
+          format: zip
+
+
+

@@ -1,0 +1,9 @@
+---
+  - hosts: testgrp
+    become: true
+    tasks: 
+       - name: Date&Time example on ansible
+        #debug:
+         #  var=ansible_date_time.date
+          # var=ansible_date_time.time
+         command: touch vinod{{ansible_date_time.date}}.log   

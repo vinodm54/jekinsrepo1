@@ -1,0 +1,7 @@
+---
+  - hosts: testgrp
+    become: true
+    tasks: 
+      - name: Move files to directories
+        command: mv /home/ans_admin/nandha.txt prashanth.txt vinod1.txt /home/ans_admin/vinod
+

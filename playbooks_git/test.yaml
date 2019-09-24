@@ -1,0 +1,27 @@
+---
+  - hosts: testgrp
+    become: true
+    tasks:
+       - name: Install git
+         yum: name=git  state=installed
+
+       - name: Install Tomcat
+         yum: name=httpd state=installed
+       
+       - name: Create Directory
+         file: path=/home/ans_admin/test state=directory
+ 
+       - name: clone from github
+         command: git clone git@github.com:mahesh-madipally/new-project.git dest=/home/ans_admin/test
+         ignore_errors: true
+   
+       - name: deploy
+         command: cp -rf /home/ansible/test/new-project/sample.war /var/www/html/
+         ignore_errors: true
+       
+       - name: start git services
+         service: name=git.service enables=yes state=started
+    
+       - name: start HTTPD service
+         service: name=httpd state=started enabled=yes
+      
