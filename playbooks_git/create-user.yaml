@@ -7,4 +7,4 @@
         user: name=vinod remove=yes force=yes state=absent
 
       - name: create new unser on node
-        user: name=vinod password=Vinod@54 group=ans_admin shell=/bin/bash
+        user: name=vinod password=xxxxxx group=ans_admin shell=/bin/bash
